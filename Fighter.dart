@@ -223,14 +223,14 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         var currentPercent = this.hp * 100 / this.maxhp;
         var bar = '\x1B[0m';
 
-        var colorSelector = currentPercent < 50 ? '\x1B[43m ' : 
-        currentPercent < 20 ? '\x1B[101m ' : '\x1B[102m ';
+        var percentColor =  currentPercent < 20 ? '\x1B[91m ' : currentPercent < 50 ? '\x1B[93m ' : '\x1B[92m';
+        var colorSelector = currentPercent < 20 ? '\x1B[101m ' : currentPercent < 50 ? '\x1B[43m ' : '\x1B[102m ';
 
         for(var per = 0; per < currentPercent/10; per++){
             bar+=colorSelector;
         }
 
-        return bar += ' \x1B[0m(${this.hp.toStringAsFixed(2)})';
+        return bar += '\x1B[0m ${percentColor}${currentPercent.toStringAsFixed(2)}%  \x1B[0m(${this.hp.toStringAsFixed(2)})';
     }
 
     String getManaBar(){
@@ -238,12 +238,12 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         
         var currentPercent = this.mana * 100 / this.baseMana;
         var bar = '\x1B[0m';
-    
+        
         for(var per = 0; per < currentPercent/10; per++){
             bar+='\x1B[44m ';
         }
 
-        return bar += ' \x1B[0m(${this.mana.toStringAsFixed(2)})';
+        return bar += '\x1B[0m \x1B[94m${currentPercent.toStringAsFixed(2)}%  \x1B[0m(${this.mana.toStringAsFixed(2)})';
     }
 
     String getStatus(isPic){

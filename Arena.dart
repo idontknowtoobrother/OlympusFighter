@@ -72,12 +72,12 @@ mixin InformationAndControl {
 
                 if(isBotHaveEnoughMana(enemy, randAtk, 'atk')){
                     enemy.attack(player, enemy.getAttackAbility(randAtk, false));
-                    return '\n   ${enemy.getName()}\t🗡️  ${enemy.getAttackAbility(randAtk, true)}}';
+                    return '\n   ${enemy.getName()}\t🗡️  ${enemy.getAttackAbility(randAtk, true)}';
                 }
 
                 // Default case of healing when not enough mana :D
                 enemy.attack(player, enemy.getAttackAbility(5, false));
-                return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}}';
+                return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}';
                 
             }else{
 
@@ -101,13 +101,13 @@ mixin InformationAndControl {
                     if(isBotHaveEnoughMana(enemy, randAtk, 'atk')){
 
                         enemy.attack(player, enemy.getAttackAbility(randAtk, false));
-                        return '\n   ${enemy.getName()}\t🗡️  ${enemy.getAttackAbility(randAtk, true)}}';
+                        return '\n   ${enemy.getName()}\t🗡️  ${enemy.getAttackAbility(randAtk, true)}';
 
                     }
 
                     // Default case of healing when not enough mana :D
                     enemy.attack(player, enemy.getAttackAbility(5, false));
-                    return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}}';
+                    return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}';
 
                 }
             }
@@ -135,12 +135,12 @@ mixin InformationAndControl {
 
                 if(isBotHaveEnoughMana(enemy, randAtk, 'atk')){
                     enemy.attack(player, enemy.getAttackAbility(randAtk, false));
-                    return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(randAtk, true)}}';
+                    return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(randAtk, true)}';
                 }
 
                 // Default case of healing when not enough mana :D
                 enemy.attack(player, enemy.getAttackAbility(5, false));
-                return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}}';
+                return '\n   ${enemy.getName()}\t🗡️  Base Damage ${enemy.getAttackAbility(5, true)}';
 
             }
 
