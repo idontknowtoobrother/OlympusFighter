@@ -221,10 +221,10 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         if (this.hp > this.maxhp) return 'this player health obvious!';
         
         var currentPercent = this.hp * 100 / this.maxhp;
-        var bar = '\x1B[101m';
+        var bar = '\x1B[0m';
     
         for(var per = 0; per < currentPercent/10; per++){
-            bar+=' ';
+            bar+='\x1B[101m ';
         }
 
         return bar += ' \x1B[0m(${this.hp.toStringAsFixed(2)})';
@@ -234,10 +234,10 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         if (this.mana > this.baseMana) return 'this player mana obvious!';
         
         var currentPercent = this.mana * 100 / this.baseMana;
-        var bar = '\x1B[44m';
+        var bar = '\x1B[0m';
     
         for(var per = 0; per < currentPercent/10; per++){
-            bar+=' ';
+            bar+='\x1B[44m ';
         }
 
         return bar += ' \x1B[0m(${this.mana.toStringAsFixed(2)})';
