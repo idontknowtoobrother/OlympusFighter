@@ -84,7 +84,7 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
 
     Fighter(name, level, hp, restoration, damage, characterPic, expGet, baseMana){
         this.level = level;
-        this.characterPic = characterPic;
+        this.characterPic = '\n'+characterPic;
         this.name = name;
         this.maxhp = hp;
         this.hp = hp;
@@ -222,9 +222,12 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         
         var currentPercent = this.hp * 100 / this.maxhp;
         var bar = '\x1B[0m';
-    
+
+        var colorSelector = currentPercent < 50 ? '\x1B[43m ' : 
+        currentPercent < 20 ? '\x1B[101m ' : '\x1B[102m ';
+
         for(var per = 0; per < currentPercent/10; per++){
-            bar+='\x1B[101m ';
+            bar+=colorSelector;
         }
 
         return bar += ' \x1B[0m(${this.hp.toStringAsFixed(2)})';
