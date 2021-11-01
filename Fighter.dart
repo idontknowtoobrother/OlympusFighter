@@ -16,6 +16,8 @@ abstract class Character {
 
     String getSkillManaUsageInfo(whichAbility);  /** For get mana skill using info */
     String getHealManaUsageInfo(whichAbility);  /** For get mana heal using info */
+    String getHealthBar(); /** For get health bars */
+    String getManaBar(); /** For get health bars */
 
     String getStatus(isPic); /** For show information of character */
     String getFightngStatus(); /** For show fighting information */
@@ -120,7 +122,7 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         this.hp = this.maxhp;
         this.mana = this.baseMana;
     }
-
+    
     void addExp(enemy){
 
         var expAmount = enemy.level < this.level ? (enemy.expGet*0.5) : enemy.expGet*0.7; 
@@ -215,6 +217,32 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
         return this.mappingHealUsageMana[whichAbility]!.toStringAsFixed(2);
     }
 
+    String getHealthBar(){
+        if (this.hp > this.maxhp) return 'this player health obvious!';
+        
+        var currentPercent = this.hp * 100 / this.maxhp;
+        var bar = '\x1B[101m';
+    
+        for(var per = 0; per < currentPercent/10; per++){
+            bar+=' ';
+        }
+
+        return bar += ' \x1B[0m(${this.hp.toStringAsFixed(2)})';
+    }
+
+    String getManaBar(){
+        if (this.mana > this.baseMana) return 'this player mana obvious!';
+        
+        var currentPercent = this.mana * 100 / this.baseMana;
+        var bar = '\x1B[44m';
+    
+        for(var per = 0; per < currentPercent/10; per++){
+            bar+=' ';
+        }
+
+        return bar += ' \x1B[0m(${this.mana.toStringAsFixed(2)})';
+    }
+
     String getStatus(isPic){
         var strInfo = '';
         if(isPic){
@@ -234,7 +262,7 @@ class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndC
     }
 
     String getFightngStatus(){
-        return '\n${this.characterPic}\n   @ ( \x1B[96m${this.name}\x1B[0m )\n|   \x1B[32mLevel\x1B[0m: ${this.level}\n|   \x1B[91mHP\x1B[0m: ${this.hp.toStringAsFixed(2)}\n|   \x1B[35mMana\x1B[0m: ${this.mana.toStringAsFixed(2)}';
+        return '\n${this.characterPic}\n   @ ( \x1B[96m${this.name}\x1B[0m )\n|   \x1B[32mLevel\x1B[0m: ${this.level}\n|   \x1B[91mHP\x1B[0m: ${this.getHealthBar()}\n|   \x1B[35mMana\x1B[0m: ${this.getManaBar()}';
     }
 
 }
