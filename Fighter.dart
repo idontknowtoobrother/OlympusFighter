@@ -35,8 +35,6 @@ mixin DevelopTools {
 
 }
 
-
-
 class Fighter extends Character with AbilityAttack, AbilityHeal, Information, /* DevTools (debug)*/ DevelopTools {
 
     String 
