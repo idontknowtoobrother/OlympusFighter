@@ -1,4 +1,6 @@
 import 'Arena.dart';
+import 'Control.dart';
+import 'Information.dart';
 
 abstract class Character {
 
@@ -33,23 +35,9 @@ mixin DevelopTools {
 
 }
 
-mixin AbilityAttack {
 
-    double attack1(damage) => damage*1.25;   
-    double attack2(damage) => damage*1.50;   
-    double attack3(damage) => damage*1.75;   
-    double attack4(damage) => damage*2.00;   
 
-}
-
-mixin AbilityHeal {
-
-    double heal1(restoration) => restoration * 1.25;
-    double heal2(restoration) => restoration * 1.50;
-
-}
-
-class Fighter extends Character with AbilityAttack, AbilityHeal, InformationAndControl, /* DevTools (debug)*/ DevelopTools {
+class Fighter extends Character with AbilityAttack, AbilityHeal, Information, /* DevTools (debug)*/ DevelopTools {
 
     String 
     name = '',
