@@ -27,9 +27,8 @@ mixin Control {
         
         if(selection == '1' || selection == '2' || selection == '3' || selection == '4' || selection == '5'){
             return character.getAttackAbility(int.parse(selection!), false);
-        }else{
-            return -1;
         }
+        return -1;
     }
 
     double healAbilityControl(character, character2){
@@ -41,9 +40,8 @@ mixin Control {
         
         if(selection == '1' || selection == '2' || selection == '3' ){
             return character.getRestorationAbility(int.parse(selection!), false);
-        }else{
-            return -1;
         }
+        return -1;
     }
     
 }
